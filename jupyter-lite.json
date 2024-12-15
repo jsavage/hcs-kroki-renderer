@@ -10,6 +10,10 @@
         },
         "startupScripts": [
             "startup/hcs_magic.py"
-        ]
+        ],
+        "notebookConfig": {
+            "autoStartKernel": true,
+            "defaultNotebook": "startup.ipynb"
+        }
     }
 }
