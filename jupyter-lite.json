@@ -9,11 +9,8 @@
             }
         },
         "startupScripts": [
-            "startup/hcs_magic.py"
-        ],
-        "notebookConfig": {
-            "autoStartKernel": true,
-            "defaultNotebook": "startup.ipynb"
-        }
+            "startup/hcs_magic.py",
+            "import sys; sys.path.append('/home/jovyan/content/startup'); from hcs_magic import hcs"
+        ]
     }
 }
