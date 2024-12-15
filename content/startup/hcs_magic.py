@@ -1,15 +1,15 @@
 from IPython.core.magic import register_cell_magic
 from IPython.display import display, HTML
-import requests
 import base64
+import zlib
 
 @register_cell_magic
 def hcs(line, cell):
     mermaid_code = convert_hcs_to_mermaid(cell)
-    kroki_url = 'https://kroki.io/mermaid/svg/'
-    encoded_diagram = base64.b64encode(mermaid_code.encode('utf-8')).decode('utf-8')
-    img_url = f'{kroki_url}{encoded_diagram}'
-    display(HTML(f'<img src="{img_url}"/>'))
+    deflated = zlib.compress(mermaid_code.encode('utf-8'))
+    encoded = base64.urlsafe_b64encode(deflated).decode('utf-8')
+    url = f'https://kroki.io/mermaid/svg/{encoded}'
+    display(HTML(f'<img src="{url}"/>'))
 
 def convert_hcs_to_mermaid(hcs_input):
     mermaid_lines = ['graph TD', 'linkStyle default interpolate basis']
