@@ -5,12 +5,13 @@
             "python": {
                 "name": "python",
                 "display_name": "Python (Pyodide)",
-                "language": "python"
+                "language": "python",
+                "metadata": {
+                    "ipykernel": {
+                        "startup_scripts": ["startup/kernel_startup.py"]
+                    }
+                }
             }
-        },
-        "startupScripts": [
-            "startup/hcs_magic.py",
-            "import sys; sys.path.append('/home/jovyan/content/startup'); from hcs_magic import hcs"
-        ]
+        }
     }
 }
