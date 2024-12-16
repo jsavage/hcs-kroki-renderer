@@ -5,13 +5,11 @@
             "python": {
                 "name": "python",
                 "display_name": "Python (Pyodide)",
-                "language": "python",
-                "metadata": {
-                    "ipykernel": {
-                        "startup_scripts": ["startup/kernel_startup.py"]
-                    }
-                }
+                "language": "python"
             }
-        }
+        },
+        "startupScripts": [
+            "startup/00-init.py"
+        ]
     }
 }
